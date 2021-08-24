@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Car Tracker</h1>
+        Using the car tracker functionality of this webapp you can track cars in an image or video.<br>
+        Most of the scanned cars in the image or video will be displayed in <br>
+        will be displayed in rectangular boxes<br>Car detection will help in self driving and can help <br>
+        in notifying the driver if there is a car ahead or not and can hence be helpful in preventing accidents<br>
+        Below there are 2 card options that are provided.<br>
+        The options provided are
+        <ul>
+          <li>Car tracking using an existing image</li>
+          <li>Car tracking using an existing video</li>
+        </ul>
+
+      <div class="flex-container">
+        <div class="box2" id="carImage" onclick="clicked_card(this.id)" style="margin-right = 20px">
+          <a href = "carImageTracker.html"><h3>IMAGE CAR TRACKER</h3></a>
+          Click this card if you want to use a script which highlights the cars
+          in the image selected.
+        </div>
+        <div class="box2" id="carVideo" onclick="clicked_card(this.id)">
+          <a href="/carVideo"><h3>VIDEO CAR TRACKER</h3></a>
+          Click this card if you want to use a script which highlights the cars
+          in the video selected.
+        </div>
+      </div>
+
+
+        <button type="button" id = "back"><a href="index.html">BACK</a></button>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Improving Self-Driving functionality</h1>
+        Using this web app on the existing images or videos provided in this app<br>
+        <b>Cars and Pedestrians</b> can be scanned <br>
+        which can help improve the functionality of pedestrian protection in Self Driving<br>
+        and Car detection as well in Self Driving to inform if there is a car ahead or not<br>
+        which helps prevent accidents<br>
+        Below there are 4 card options that are provided.<br>
+        The options provided are
+        <ul>
+          <li>Car tracker</li>
+          <li>Pedestrian tracker</li>
+          <li>Both Car and Pedestrian tracker</li>
+          <li>Car Speed tracker</li>
+        </ul>
+
+      <div class="flex-container">
+        <div class="box1" id="carBox" onclick="clicked_card(this.id)">
+          <a href = "car.html"><h3>CAR TRACKER</h3></a>
+          Click this card if you want to use a script which highlights the cars
+          in the image or video selected to some extent.
+        </div>
+        <div class="box1" id="pedBox" onclick="clicked_card(this.id)">
+          <a href="pedestrian.html"><h3>PEDESTRIAN TRACKER</h3></a>
+          Click this card if you want to use a script which highlights the pedestrians
+          in the image or video selected to some extent.
+        </div>
+      </div>
+
+      <div class="flex-container">
+        <div class="box1" id="bothBox" onclick="clicked_card(this.id)">
+          <a href = "bothCarPedestrian.html"><h3>CAR AND PEDESTRIAN TRACKER</h3></a>
+          Click this card if you want to use a script which highlights both cars and pedestrians
+          in the image or video selected to some extent.
+        </div>
+        <div class="box1" id="carSpeed" onclick="clicked_card(this.id)">
+          <a href = "carSpeed.html"><h3>CAR SPEED TRACKER</h3></a>
+          Click this card if you want to use a script which shows the speed of a car
+          in the video selected to some extent.
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+    function clicked_card(clickedID) {
+                 eel.cardClicked(clickedID);
+       }
+    </script>
+
+
+
+  </body>
+</html>
