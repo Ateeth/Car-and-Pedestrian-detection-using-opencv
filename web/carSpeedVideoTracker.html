@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Video Car Speed Tracker</h1>
+        Below there are few videos . To view the speed of some of the cars in each video please click on any of the <br>
+        below videos. Most of the cars speeds in the video will be displayed with respect to a fixed point in the video
+
+        <div>
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="CarSpeedvideo1.mp4" >
+            <source src="carSpeedvideos/CarSpeedvideo1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="CarSpeedvideo2.mp4" >
+            <source src="carSpeedvideos/CarSpeedvideo2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="CarSpeedvideo3.mp4" >
+            <source src="carSpeedvideos/CarSpeedvideo3.mp4" type="video/mp4" >
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="CarSpeedvideo4.mp4">
+            <source src="carSpeedvideos/CarSpeedvideo4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="CarSpeedvideo5.mp4">
+            <source src="carSpeedvideos/CarSpeedvideo5.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+        <button type="button" id = "back"><a href="carSpeed.html">BACK</a></button>
+    </div>
+
+  </body>
+
+  <script>
+    function clicked_card(clickedID) {
+               eel.cardClicked(clickedID);
+     }
+  </script>
+
+  <script type="text/javascript">
+
+  function clicked_element(clickedID) {
+               eel.elementClicked(clickedID);
+     }
+  </script>
+</html>

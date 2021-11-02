@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Image Car Tracker</h1>
+        Below there are few images . To view the number of cars in each image please click on any of the <br>
+        below images. Most of the cars in the image will be highlighted in rectangles
+
+
+        <div class="row">
+          <!--<div class="column">
+            <img src="car images/car1.png" alt="car1" style="width:100%" id="car1.jpg" onclick="clicked_element(this.id)">
+          </div> -->
+          <div class="column">
+            <img src="car images/car2.jpg" alt="car2" style="width:100%" id="car2.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="car images/car3.jpg" alt="car3" style="width:100%" id="car3.jpg" onclick="clicked_element(this.id)">
+          </div>
+        </div>
+
+
+        <!--<div class="row">
+          <div class="column">
+            <img src="car images/car4.jpeg" alt="car4" style="width:100%" id="car4.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="car images/car5.png" alt="car5" style="width:100%" id="car5.jpg" onclick="clicked_element(this.id)">
+          </div>
+        </div> -->
+        <button type="button" id = "back"><a href="car.html">BACK</a></button>
+    </div>
+
+  </body>
+  <script>
+    function clicked_card(clickedID) {
+               eel.cardClicked(clickedID);
+     }
+  </script>
+
+  <script type="text/javascript">
+
+  function clicked_element(clickedID) {
+               eel.elementClicked(clickedID);
+     }
+  </script>
+</html>

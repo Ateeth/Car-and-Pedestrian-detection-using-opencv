@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Video Car Tracker</h1>
+        Below there are few videos . To view the cars in each video please click on any of the <br>
+        below vidoes. Most of the cars in the video will be highlighted in rectangles
+
+        <div>
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="Carvideo1.mp4" >
+            <source src="car videos/Carvideo1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="Carvideo2.mp4" >
+            <source src="car videos/Carvideo2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="Carvideo3.mp4" >
+            <source src="car videos/Carvideo3.mp4" type="video/mp4" >
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="Carvideo4.mp4">
+            <source src="car videos/Carvideo4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+
+          <video width="320" height="240" controls onplay="clicked_element(this.id)" id="Carvideo5.mp4">
+            <source src="car videos/Carvideo5.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+        <button type="button" id = "back"><a href="car.html">BACK</a></button>
+    </div>
+
+  </body>
+
+  <script>
+    function clicked_card(clickedID) {
+               eel.cardClicked(clickedID);
+     }
+  </script>
+
+  <script type="text/javascript">
+
+  function clicked_element(clickedID) {
+               eel.elementClicked(clickedID);
+     }
+  </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AI PROJECT HOMEPAGE</title>
+    <link rel="stylesheet" href="cssSheets\styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <div class="main">
+        <h1>Image Pedestrian and Car Tracker</h1>
+        Below there are few images . To view the pedestrians and cars in each image please click on any of the <br>
+        below images. Most of the pedestrians and cars in the image will be highlighted in rectangles
+
+        <div class="row">
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed1.png" alt="car1" style="width:100%" id="bothCarPed1.png" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed2.jpg" alt="car1" style="width:100%" id="bothCarPed2.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed3.jpg" alt="car1" style="width:100%" id="bothCarPed3.jpg" onclick="clicked_element(this.id)">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed4.jpeg" alt="car1" style="width:100%" id="bothCarPed4.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed5.png" alt="car1" style="width:100%" id="bothCarPed5.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed6.jfif" alt="car1" style="width:100%" id="bothCarPed6.jfif" onclick="clicked_element(this.id)">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed7.jpg" alt="car1" style="width:100%" id="bothCarPed7.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed8.jpg" alt="car1" style="width:100%" id="bothCarPed8.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed9.jpg" alt="car1" style="width:100%" id="bothCarPed9.jpg" onclick="clicked_element(this.id)">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed10.jpg" alt="car1" style="width:100%" id="bothCarPed10.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed11.jpg" alt="car1" style="width:100%" id="bothCarPed11.jpg" onclick="clicked_element(this.id)">
+          </div>
+          <div class="column">
+            <img src="bothCarPedImages/bothCarPed12.jpg" alt="car1" style="width:100%" id="bothCarPed12.jpg" onclick="clicked_element(this.id)">
+          </div>
+        </div>
+        <button type="button" id = "back"><a href="bothCarPedestrian.html">BACK</a></button>
+    </div>
+  </body>
+
+  <script>
+    function clicked_card(clickedID) {
+               eel.cardClicked(clickedID);
+     }
+  </script>
+
+  <script type="text/javascript">
+
+  function clicked_element(clickedID) {
+               eel.elementClicked(clickedID);
+     }
+  </script>
+</html>
