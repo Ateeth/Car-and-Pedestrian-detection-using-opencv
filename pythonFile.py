@@ -1,3 +1,8 @@
+#Links
+# https://www.geeksforgeeks.org/python-opencv-background-subtraction/
+#https://www.tutorialkart.com/opencv/python/opencv-python-gaussian-image-smoothing/
+#https://www.tutorialspoint.com/dilating-images-using-the-opencv-function-dilate
+#https://www.pyimagesearch.com/2021/04/28/opencv-morphological-operations/
 import eel
 import re
 import cv2
@@ -6,8 +11,9 @@ import dlib
 import time
 import math
 
- #pretrained car classifier 
-car_tracker_file = "car_detector.xml"
+#pretrained car classifier 
+#car_tracker_file = "car_detector.xml"
+car_tracker_file = "carClassifier2.xml"
 
 #Create car classifier classifier
 car_tracker = cv2.CascadeClassifier(car_tracker_file)
@@ -30,10 +36,15 @@ def carImage(x):
     #the image
     img_file =  x
 
-    counter = 0
+    car_tracker_file = "car_detector.xml"
+
+    #Create car classifier classifier
+    car_tracker = cv2.CascadeClassifier(car_tracker_file)   
 
     #create opencv image
     img = cv2.imread(img_file)
+    #Display the image
+    cv2.imshow("Car Image" , img)
 
     #Convert the image to grayscale(needed for haar cascade)
     black_n_white = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -45,9 +56,9 @@ def carImage(x):
     #Draw rectangles around the cars
     for(x, y, w, h) in cars:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        counter += 1
+        #counter += 1
 
-    cv2.putText(img , "VEHICLE COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5)
+    #cv2.putText(img , "VEHICLE COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5)
     #Display the image
     cv2.imshow("Car Image" , img)
 
@@ -56,6 +67,11 @@ def carImage(x):
 
 def carVideo(x):
     #the video 
+    ##car_tracker_file = "car_detector.xml"
+    car_tracker_file = "carClassifier2.xml"
+
+    #Create car classifier classifier
+    car_tracker = cv2.CascadeClassifier(car_tracker_file)
     video = cv2.VideoCapture(x)
 
     #Run untill car stops or crashes or something
@@ -113,9 +129,9 @@ def pedImage(x):
     #Draw rectangles around the pedestrians
     for(x, y, w, h) in pedestrians:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 255), 2)
-        counter += 1
+        ##counter += 1
 
-    cv2.putText(img , "PEDESTRIAN COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5) 
+    ##cv2.putText(img , "PEDESTRIAN COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5) 
     #Display the image
     cv2.imshow("Pedestrian Image" , img)
 
@@ -164,6 +180,10 @@ def pedVideo(x):
 def bothVideo(x):
      #the video 
     video = cv2.VideoCapture(x)
+    car_tracker_file = "carClassifier2.xml"
+
+    #Create car classifier classifier
+    car_tracker = cv2.CascadeClassifier(car_tracker_file)
 
     #Run untill car stops or crashes or something
     while True:
@@ -213,6 +233,11 @@ def bothImage(x):
     counter = 0
     #create opencv image
     img = cv2.imread(img_file)
+    
+    car_tracker_file = "car_detector.xml"
+
+    #Create car classifier classifier
+    car_tracker = cv2.CascadeClassifier(car_tracker_file)  
 
     #Convert the image to grayscale(needed for haar cascade)
     black_n_white = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -231,14 +256,15 @@ def bothImage(x):
     #Draw rectangles around the cars
     for(x, y, w, h) in cars:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        counter += 1
+     ##   counter += 1
 
-    cv2.putText(img , "PEDESTRIAN AND CAR COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5) 
+    ##cv2.putText(img , "PEDESTRIAN AND CAR COUNTER : " + str(counter)  , (450 , 70) , cv2.FONT_HERSHEY_SIMPLEX , 2 , (0,100,100) , 5) 
     #Display the image
     cv2.imshow("Pedestrian Image" , img)
 
     #Dont autoclose(Wait in code and listen for a keypress)
     cv2.waitKey()
+
 
 def center_handling(x,y,w,h):
     x1 = int(w/2)
@@ -248,6 +274,11 @@ def center_handling(x,y,w,h):
     return cx,cy
 
 def videoCarCounter(x):
+    
+    car_tracker_file = "carClassifier2.xml"
+
+    #Create car classifier classifier
+    car_tracker = cv2.CascadeClassifier(car_tracker_file)
     #Capture the video
     video = cv2.VideoCapture(x) 
 
@@ -260,28 +291,52 @@ def videoCarCounter(x):
     offset = 5 #Allowable error between pixel 
     counter = 0
 
+    #Position of the car counter in the video
     count_line_position = 500
+    
     #Initialize Substructor
+    #In BackgroundSubtractorMOG2, we can also detect shadows 
     #algo to subtract the background from vehicles as only vehicles are to be detected
     algo = cv2.createBackgroundSubtractorMOG2()
     
     while True:
         (read_successful,frame) = video.read() 
         grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #Convert to gray scale
+        
+        #Image Smoothing techniques help in reducing the noise in image or video
+        #gaussian blur helps in image smoothing
         blur = cv2.GaussianBlur(grey,(3,3),5) 
 
         #Apply algorithm on each frame
         img_sub = algo.apply(blur)
 
         #structure of the algorithm will be specified on specific point i.e pixel neighbourhood gives it a shape and tries to detect it
+        #np.ones() is used to define the kernel
+        #cv2.dilate() used to expand the image on all sides
+        #the image is expanded, i.e., the pixels of the image are expanded
         dilat = cv2.dilate(img_sub , np.ones((5,5)))
 
         #pass the kernel return a structuring elmeent of the specified size and shape for morphological operations
+        #These image processing operations are applied to grayscale or binary images and are used for preprocessing for OCR algorithms, detecting barcodes, detecting license plates, and more.
+        #In general, morphology stands for the study of the form and the structure of the things. 
+        #Because as a result of conversion to the binary image, we have lost the intensity information. 
+        #Thus the only information that remains is the spatial location or the structure of the image. 
+        #The structuring element is a binary image (consisting of 0’s and 1’s) that is used to probe an image for finding the region of interest. 
+        #cv2.MORPH_ELLIPSE – creates an elliptical SE.
         kernel = cv2.getStructuringElement (cv2.MORPH_ELLIPSE,(5,5))
 
         #we will have multichannel images it performs the function of giving shape to the vehicles
+        #This can perform advanced morphological transformations using an erosion and dilation as basic operations.This is done 2 times
+        #Erosion -  Simply put, pixels near the boundary of an object in an image will be discarded, “eroding” it away.
+        #A foreground pixel in the input image will be kept only if all pixels inside the structuring element are > 0. 
+        #Otherwise, the pixels are set to 0 (i.e., background).
         dilatada = cv2.morphologyEx(dilat, cv2.MORPH_CLOSE , kernel)
         dilatada = cv2.morphologyEx(dilatada, cv2.MORPH_CLOSE , kernel)
+        
+        #The function retrieves contours from the binary image . 
+        # The contours are a useful tool for shape analysis and object detection and recognition. 
+        # cv2.RETR_TREE tells OpenCV to compute the hierarchy (relationship) between contours.
+        
         ( counterShape  , h )= cv2.findContours(dilatada, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         #draw a line
@@ -332,7 +387,11 @@ def estimateSpeed(location1, location2):
     return speed
 
 def carSpeed(x) : 
-    carCascade = cv2.CascadeClassifier('car_detector.xml')
+    car_tracker_file = "carClassifier2.xml"
+
+    #Create car classifier classifier
+    carCascade = cv2.CascadeClassifier(car_tracker_file)
+    ##carCascade = cv2.CascadeClassifier('car_detector.xml')
     video = cv2.VideoCapture(x)
 
     WIDTH = 1280
@@ -483,3 +542,4 @@ def elementClicked(x):
         videoCarCounter(x)
 
 eel.start("index.html", size=(300, 200))  # Start
+
